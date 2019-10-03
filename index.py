@@ -1,3 +1,4 @@
+import os
 from bottle import route, run, template, request, error, abort, redirect
 
 import login
@@ -47,7 +48,8 @@ def index(name):
 '''
 #run(host='localhost', port=8080)
 
-run(host='0.0.0.0')
+port = os.environ.get('PORT', 8000)
+run(host='0.0.0.0', port=port)
 
 
     
