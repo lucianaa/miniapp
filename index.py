@@ -19,6 +19,7 @@ def restricted():
     abort(401, "Sorry, access denied.")
   
     
+
     
     
 
@@ -44,8 +45,9 @@ def index(name):
     else:
         redirect("/login")
 '''
-run(host='localhost', port=8080)
+#run(host='localhost', port=8080)
 
+run(host='0.0.0.0')
 
 
     
