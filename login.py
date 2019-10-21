@@ -1,6 +1,7 @@
 import uuid
 from bottle import route, request, response, get
 from functions import check_login, check_login_API
+import hashlib
 
 SESSIONS = {}
 
@@ -17,8 +18,10 @@ def login():
 @route('/login', method='POST')#@post('/login') # or @route('/login', method='POST')
 def do_login(db):
     username = request.forms.get('username') 
-    password = request.forms.get('password')
-    if check_login(db, username, password):
+    password = str(request.forms.get('password'))
+    password = hashlib.md5(password.encode())
+    password = password.hexdigest()
+    if check_login(db, username, str(password)):
         registra_login(username)
         return "<p>Your login information was correct.</p> <a href='/'> Página principal </a>"
     else:
@@ -39,6 +42,12 @@ def esta_logado():
 def retorna_nome_login():
     session_id = request.get_cookie('session')
     return SESSIONS[session_id]
+
+#Realiza o logout eliminando o cookie criado para a sessão
+def logout():
+    session_id = request.get_cookie('session')
+    del(SESSIONS[session_id])
+
 
 #REST API
 

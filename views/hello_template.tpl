@@ -4,4 +4,5 @@
 %else:
     <h1>Olá, {{name.title()}}!</h1>
     <p>Como está?</p>
+    <a href="/logout"> Sair </a><!--link de logout-->
 %end

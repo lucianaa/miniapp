@@ -19,7 +19,11 @@ def error404(error):
 def restricted():
     abort(401, "Sorry, access denied.")
   
-    
+#Rota de logout
+@route('/logout')
+def logout():
+    login.logout()
+    redirect('/login')
 
     
     
