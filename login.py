@@ -19,7 +19,7 @@ def login():
 def do_login(db):
     username = request.forms.get('username') 
     password = str(request.forms.get('password'))
-    password = hashlib.md5(password.encode())
+    password = hashlib.sha3_224(password.encode())
     password = password.hexdigest()
     if check_login(db, username, str(password)):
         registra_login(username)
