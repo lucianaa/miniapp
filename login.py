@@ -1,5 +1,5 @@
 import uuid
-from bottle import route, request, response, get
+from bottle import route, request, response, get, template
 from functions import check_login, check_login_API
 import hashlib
 
@@ -7,13 +7,7 @@ SESSIONS = {}
 
 @route('/login') #@get('/login') # or @route('/login')
 def login():
-    return '''
-        <form action="/login" method="post">
-            Usuário: <input name="username" type="text" /> <br />
-            Senha: <input name="password" type="password" /> <br />
-            <input value="Login" type="submit" />
-        </form>
-    '''
+    return template('login')
 
 @route('/login', method='POST')#@post('/login') # or @route('/login', method='POST')
 def do_login(db):
