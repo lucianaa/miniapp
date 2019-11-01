@@ -7,7 +7,7 @@ import login
 @route('/')
 def index():
     if login.esta_logado():
-        return template('hello_template', name= login.retorna_nome_login())
+        return template('index', name= login.retorna_nome_login())
     else:
         redirect("/login")
         
