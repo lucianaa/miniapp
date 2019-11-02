@@ -12,8 +12,8 @@
         <h1>Bem Vindo</h1>
          <h2>Olá, {{name.title()}}!</h2>
         <div class="textbox">
+          <h3> Ready to logOUT? </h3>
           <i class="fas fa-user-cog"></i>
-          <input type="text" value="Ready to logOUT?" />
         </div>
         <div class="btn">          
           <input type="submit" value="Getting OUT of here" />
