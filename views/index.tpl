@@ -10,7 +10,7 @@
     <div class="login-case">
       <div class="login-box">
         <h1>Bem Vindo</h1>
-         <h2>Olá, {{name.title()}}!</h2>
+         <h2>{{name.title()}}!</h2>
         <div class="textbox">
           <h3> Ready to logOUT? </h3>
           <i class="fas fa-user-cog"></i>
