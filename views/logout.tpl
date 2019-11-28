@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    
     <meta charset="utf-8" />
     <title></title>
+    
     <style>
 
     @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
@@ -11,14 +11,13 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url(".../views/sys.jpg");
-  background-repeat: no-repeat;
+  background-image: url("sys.jpg") no-repeat;
   background-size: cover;  }
 
 
 .login-case{
   width: 500px;
-	height: 450px;	
+	height: 300px;	
   background-image: radial-gradient(white, rgb(207, 239, 247), rgb(61, 196, 250));  
   box-shadow:5px 5px 15px 20px rgb(153, 211, 250);
   background-color: transparent;
@@ -50,7 +49,7 @@ body{
   font-size: 20px;
   padding: 8px 0;
   margin: 8px 0;
-  border-bottom: 1px solid #034780;
+  
 }
 .textbox i{
   width: 26px;
@@ -61,7 +60,7 @@ body{
   border: none;
   outline: none;
   background: none;
-  color: gray;
+  color: black;
   font-size: 18px;
   width: 80%;
   float: left;
@@ -91,38 +90,35 @@ body{
 }
 .btn:hover {
 	border-radius: 50px;
-	background: white;	
+	background: #f5f3f0;	
 }
 
 .btn:i{
   width: 26px;
-  float: left;
-  text-align: center;
+  float: right;
+  text-align: left;
 }
 
     </style>
-    
+   
   </head>
   <body>
-  <form action="/login" method="post">           
+  <form action="/logout">
     <div class="login-case">
       <div class="login-box">
-        <h1>LogIN</h1>
+        <h1>Bem Vindo</h1>
+         <h2>Olá, {{name.title()}}!</h2>
         <div class="textbox">
-          <i class="fas fa-user"></i>
-          <input name="username" type="text" placeholder="Username" />
+          <i class="fas fa-user-cog"></i>
+          <h1>Ready to logOUT? <h1/>
         </div>
-
-        <div class="textbox">
-          <i class="fas fa-lock"></i>
-          <input name="password" type="password" placeholder="Password" />
-        </div>
-        <div class="btn">
-          <i class="fas fa-angle-double-right"></i>
-          <input type="submit" value="Login" />
+        <div class="btn">          
+          <input type="submit" value="Getting OUT of here" />
+          <i class="fas fa-angle-double-left"></i>
         </div>
       </div>
     </div>
-     </form>
+    </form>
   </body>
 </html>
+
