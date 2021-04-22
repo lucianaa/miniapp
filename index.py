@@ -1,7 +1,20 @@
 import os
 from bottle import route, run, template, request, error, abort, redirect
 
+
 import login
+
+@hook('after_request')
+def enable_cors():
+    print "after_request hook"
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+
+@post('/cors')
+def lvambience():
+    response.headers['Content-Type'] = 'application/json'
+    return "[1]"
 
 
 @route('/')
