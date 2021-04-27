@@ -1,21 +1,15 @@
-import os
-from bottle import route, run, template, request, error, abort, redirect
 
-
+from bottle import Bottle, route, template, response, request, error, abort, redirect, hook, post
 import login
 
-@hook('after_request')
-def enable_cors():
-    print "after_request hook"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
-    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+@route('/hello')
+def hello():
+    return 'Hello World'
 
 @post('/cors')
 def lvambience():
     response.headers['Content-Type'] = 'application/json'
     return "[1]"
-
 
 @route('/')
 def index():
@@ -36,10 +30,7 @@ def restricted():
 @route('/logout')
 def logout():
     login.logout()
-    redirect('/login')
-
-    
-    
+    redirect('/login')    
 
 #outras ideias
 '''@route('/my_ip')
@@ -63,10 +54,3 @@ def index(name):
     else:
         redirect("/login")
 '''
-#run(host='localhost', port=8080)
-
-port = os.environ.get('PORT', 8000)
-run(host='0.0.0.0', port=port)
-
-
-    
