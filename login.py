@@ -42,9 +42,7 @@ def logout():
     session_id = request.get_cookie('session')
     del(SESSIONS[session_id])
 
-
 #REST API
-
 @get('/usuario/<name>')
 def get_usuario(db,name):    
     if check_login_API(db, name):

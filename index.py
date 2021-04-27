@@ -1,5 +1,5 @@
 
-from bottle import Bottle, route, template, response, request, error, abort, redirect, hook, post
+from bottle import route, template, response, request, error, abort, redirect, post
 import login
 
 @route('/hello')
